@@ -1,13 +1,4 @@
-import './App.css';
-import Carousel from 'react-bootstrap/Carousel';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import React, { useState } from 'react';
-
-const App = () => {
-
-  const testData = [
+const testData = [
     {
         title: "Marvelous Melons",
         summary: "Learn about these marvelous new melon varieties melonologists are creating.",
@@ -46,51 +37,4 @@ const App = () => {
     }
 ];
 
-  const [melons, setMelons] = useState(testData);
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
-
-  return (
-    <Container className="App">
-    <Carousel activeIndex={index} onSelect={handleSelect}>
-      {melons.map((melon, melonInd) => (
-        <Carousel.Item key={melonInd}>
-          <Container style={{backgroundImage: `url(${melon.image})`}} className={'carousel-div'}>
-            <Row>
-              <Col xs={1}>
-                <div>
-                  <div>
-                  {melon.postDate.getDate()}
-                  </div>
-                  <div>
-                  {new Intl.DateTimeFormat('en-US', { month: 'short'}).format(melon.postDate.getMonth())}
-                  </div>
-                  
-                </div>
-              </Col>
-              <Col xs={10}>
-              <img
-                className="d-block w-100"
-                src={melon.image}
-                alt={melon.summary}
-              />
-              <Carousel.Caption>
-                <h3>{melon.title}</h3>
-                <p>{melon.summary}</p>
-              </Carousel.Caption>
-              </Col>
-            </Row>
-
-          </Container>
-
-        </Carousel.Item>
-      ))}
-      </Carousel>
-    </Container>
-  );
-};
-
-export default App;
+export default testData;
